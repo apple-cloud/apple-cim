@@ -250,7 +250,6 @@ class CIMConnectorManagerImpl extends SimpleChannelInboundHandler<Object> implem
 
 	private void sendBroadcast(final Intent intent) {
 		executor.execute(new Runnable() {
-			@Override
 			public void run() {
 				CIMEventBroadcastReceiver.getInstance().onReceive(intent);
 			}

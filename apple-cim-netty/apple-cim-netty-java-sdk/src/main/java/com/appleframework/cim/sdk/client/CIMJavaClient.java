@@ -32,7 +32,6 @@ public class CIMJavaClient implements CIMEventListener {
 
 	}
 
-	@Override
 	public void onConnectionClosed() {
 		System.out.println("onConnectionClosed");
 		/**
@@ -42,7 +41,6 @@ public class CIMJavaClient implements CIMEventListener {
 		 */
 	}
 
-	@Override
 	public void onConnectionFailed(Exception e) {
 		System.out.println("onConnectionFailed");
 		/**
@@ -52,7 +50,6 @@ public class CIMJavaClient implements CIMEventListener {
 		 */
 	}
 
-	@Override
 	public void onConnectionSuccessed(boolean hasAutoBind) {
 		System.out.println("onConnectionSuccessed");
 		if (!hasAutoBind) {
@@ -65,7 +62,6 @@ public class CIMJavaClient implements CIMEventListener {
 		 */
 	}
 
-	@Override
 	public void onMessageReceived(Message message) {
 		System.out.println(message.toString());
 		/**
@@ -75,7 +71,6 @@ public class CIMJavaClient implements CIMEventListener {
 		 */
 	}
 
-	@Override
 	public void onReplyReceived(ReplyBody replybody) {
 		System.out.println(replybody.toString());
 		/**
@@ -89,9 +84,7 @@ public class CIMJavaClient implements CIMEventListener {
 		startup();
 	}
 
-	@Override
 	public int getEventDispatchOrder() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
