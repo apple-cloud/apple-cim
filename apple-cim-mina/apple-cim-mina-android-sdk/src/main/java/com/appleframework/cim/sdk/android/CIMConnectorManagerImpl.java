@@ -76,8 +76,6 @@ class CIMConnectorManagerImpl extends IoHandlerAdapter implements KeepAliveMessa
 	private ExecutorService executor = Executors.newFixedThreadPool(1);
 	private Context context;
 
-	private static CIMConnectorManagerImpl manager;
-
 	private CIMConnectorManagerImpl(Context ctx) {
 		context = ctx;
 
@@ -96,14 +94,6 @@ class CIMConnectorManagerImpl extends IoHandlerAdapter implements KeepAliveMessa
 		connector.getFilterChain().addLast("heartbeat", keepAliveaHandler);
 
 		connector.setHandler(this);
-
-	}
-
-	public synchronized static CIMConnectorManagerImpl getManager(Context context) {
-		if (manager == null) {
-			manager = new CIMConnectorManagerImpl(context);
-		}
-		return manager;
 
 	}
 
@@ -194,8 +184,6 @@ class CIMConnectorManagerImpl extends IoHandlerAdapter implements KeepAliveMessa
 		}
 
 		CIMCacheToolkit.destroy();
-
-		manager = null;
 	}
 
 	public boolean isConnected() {
