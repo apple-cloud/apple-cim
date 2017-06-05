@@ -248,6 +248,8 @@ public abstract class AbstractCIMSession implements Serializable {
 	public abstract void closeOnFlush();
 	
 	public abstract void setSession(Object session);
+	
+	public abstract String getRemoteIp();
 
 	public void setPackageName(String packageName) {
 		this.packageName = packageName;

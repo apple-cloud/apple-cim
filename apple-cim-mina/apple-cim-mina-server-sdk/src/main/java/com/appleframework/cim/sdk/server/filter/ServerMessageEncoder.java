@@ -37,7 +37,7 @@ import com.appleframework.cim.sdk.server.model.Protobufable;
 public class ServerMessageEncoder extends ProtocolEncoderAdapter {
 
 	protected final Logger logger = Logger.getLogger(ServerMessageEncoder.class);
-	@Override
+	
 	public void encode(IoSession iosession, Object object, ProtocolEncoderOutput out) throws Exception {
 		
 		if(object instanceof Protobufable){

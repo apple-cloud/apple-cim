@@ -27,10 +27,10 @@ import org.apache.mina.core.session.IoSession;
 import org.apache.mina.filter.codec.CumulativeProtocolDecoder;
 import org.apache.mina.filter.codec.ProtocolDecoderOutput;
 
+import com.appleframework.cim.sdk.model.proto.SentBodyProto;
 import com.appleframework.cim.sdk.server.constant.CIMConstant;
 import com.appleframework.cim.sdk.server.model.HeartbeatResponse;
 import com.appleframework.cim.sdk.server.model.SentBody;
-import com.appleframework.cim.sdk.server.model.proto.SentBodyProto;
 /**
  *  服务端接收消息解码
  */

@@ -92,6 +92,7 @@
 									<th width="10%">应用版本</th>
 									<th width="10%">设备型号</th>
 									<th width="10%">在线时长</th>
+									<th width="10%">IP</th>
 									<th width="28%">位置</th>
 									<th width="12%">操作</th>
 								</tr>
@@ -126,6 +127,9 @@
 										</td>
 										<td>
 										    <%=(System.currentTimeMillis()-ios.getBindTime())/1000 %>秒
+										</td>
+										<td>
+										   <%=ios.getClientIp()==null?"":ios.getClientIp() %>
 										</td>
 										<td>
 										   <%=ios.getAttribute("location")==null?"":ios.getAttribute("location") %>

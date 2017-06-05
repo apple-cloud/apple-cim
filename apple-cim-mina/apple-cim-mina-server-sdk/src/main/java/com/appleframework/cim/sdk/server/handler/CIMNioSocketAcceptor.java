@@ -108,8 +108,6 @@ public class CIMNioSocketAcceptor extends IoHandlerAdapter implements KeepAliveM
 		}
 	}
 
-	/**
-	 */
 	public void sessionClosed(IoSession session) {
 		CIMSession cimSession = new CIMSession(session);
 		logger.warn("sessionClosed()... from " + session.getRemoteAddress() + " nid:" + cimSession.getNid()
@@ -120,41 +118,31 @@ public class CIMNioSocketAcceptor extends IoHandlerAdapter implements KeepAliveM
 		}
 	}
 
-	/**
-	 */
 	public void sessionIdle(IoSession session, IdleStatus status) {
 		logger.warn("sessionIdle()... from " + session.getRemoteAddress() + " nid:" + session.getId());
 	}
 
-	/**
-	 */
 	public void exceptionCaught(IoSession session, Throwable cause) {
 		logger.error("exceptionCaught()... from " + session.getRemoteAddress() + " isConnected:" + session.isConnected()
 				+ " nid:" + session.getId(), cause);
 		session.closeNow();
 	}
 
-	/**
-	 */
 	public void messageSent(IoSession session, Object message) throws Exception {
 	}
 
-	@Override
 	public Object getRequest(IoSession session) {
 		return HeartbeatRequest.getInstance();
 	}
 
-	@Override
 	public Object getResponse(IoSession arg0, Object arg1) {
 		return null;
 	}
 
-	@Override
 	public boolean isRequest(IoSession arg0, Object arg1) {
 		return false;
 	}
 
-	@Override
 	public boolean isResponse(IoSession arg0, Object arg1) {
 		return arg1 instanceof HeartbeatResponse;
 	}

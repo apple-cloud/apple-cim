@@ -22,6 +22,7 @@
 package com.appleframework.cim.sdk.server.session;
 
 import java.io.Serializable;
+import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 
 import org.apache.mina.core.future.WriteFuture;
@@ -40,6 +41,7 @@ public class CIMSession extends AbstractCIMSession implements Serializable {
 	public CIMSession(IoSession session) {
 		this.session = session;
 		this.nid = String.valueOf(session.getId());
+		this.clientIp = this.getRemoteIp();
 	}
 
 	public CIMSession() {
@@ -130,6 +132,15 @@ public class CIMSession extends AbstractCIMSession implements Serializable {
 
 	public IoSession getIoSession() {
 		return session;
+	}   
+
+	public String getRemoteIp() {
+		try {
+			InetSocketAddress insocket = (InetSocketAddress) session.getRemoteAddress();
+			return insocket.getAddress().getHostAddress();			
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 }

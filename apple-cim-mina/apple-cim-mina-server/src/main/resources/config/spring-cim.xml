@@ -3,14 +3,23 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="
 	  http://www.springframework.org/schema/beans 
-	  http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
-	">
+	  http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<bean id="propertyConfigurer"
+		class="com.appleframework.config.ExtendedPropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:system.properties</value>
+			</list>
+		</property>
+		<property name="loadRemote" value="false" />
+	</bean>
 
 	<bean id="contextHolder" class="com.appleframework.cim.util.ContextHolder" />
 
 	<bean id="CIMNioAcceptor" class="com.appleframework.cim.sdk.server.handler.CIMNioSocketAcceptor"
 		init-method="bind" destroy-method="unbind">
-		<property name="port" value="23456" />
+		<property name="port" value="${service.port}" />
 		<property name="handlers">
 			<map>
 				<entry key="client_bind">
