@@ -8,19 +8,13 @@
 		<artifactId>apple-cim</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>apple-cim-client-core</artifactId>
-	<name>apple-cim-client-core</name>
+	<artifactId>apple-cim-core</artifactId>
+	<name>apple-cim-core</name>
 	<url>http://maven.apache.org</url>
-
 	<dependencies>
 		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>apple-cim-core</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
+			<groupId>com.google.protobuf</groupId>
+			<artifactId>protobuf-java</artifactId>
 		</dependency>
 	</dependencies>
 </project>

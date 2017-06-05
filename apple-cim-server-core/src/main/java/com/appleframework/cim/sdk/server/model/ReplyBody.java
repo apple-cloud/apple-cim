@@ -26,8 +26,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import com.appleframework.cim.sdk.model.proto.ReplyBodyProto;
 import com.appleframework.cim.sdk.server.constant.CIMConstant;
-import com.appleframework.cim.sdk.server.model.proto.ReplyBodyProto;
 
 /**
  * 请求应答对象

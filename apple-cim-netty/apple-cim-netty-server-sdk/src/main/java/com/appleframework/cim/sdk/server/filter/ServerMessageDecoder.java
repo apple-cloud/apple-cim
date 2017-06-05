@@ -25,10 +25,10 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.appleframework.cim.sdk.model.proto.SentBodyProto;
 import com.appleframework.cim.sdk.server.constant.CIMConstant;
 import com.appleframework.cim.sdk.server.model.HeartbeatResponse;
 import com.appleframework.cim.sdk.server.model.SentBody;
-import com.appleframework.cim.sdk.server.model.proto.SentBodyProto;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;

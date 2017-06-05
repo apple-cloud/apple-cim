@@ -14,10 +14,10 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.google.protobuf</groupId>
-			<artifactId>protobuf-java</artifactId>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>apple-cim-core</artifactId>
+			<version>${project.version}</version>
 		</dependency>
-		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>

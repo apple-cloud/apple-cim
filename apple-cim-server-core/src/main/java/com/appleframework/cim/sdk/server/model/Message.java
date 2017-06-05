@@ -23,8 +23,8 @@ package com.appleframework.cim.sdk.server.model;
 
 import java.io.Serializable;
 
+import com.appleframework.cim.sdk.model.proto.MessageProto;
 import com.appleframework.cim.sdk.server.constant.CIMConstant;
-import com.appleframework.cim.sdk.server.model.proto.MessageProto;
 
 /**
  * 消息对象
