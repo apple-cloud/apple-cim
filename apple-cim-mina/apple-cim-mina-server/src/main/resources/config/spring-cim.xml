@@ -32,10 +32,19 @@
 		</property>
 	</bean>
 
-
+	<!-- 
 	<bean id="CIMSessionManager"
 		class="com.appleframework.cim.sdk.server.session.DefaultSessionManager" />
-
+	-->
+	
+	<bean id="hazelcastInstance" class="com.appleframework.cim.session.HazelcastInstanceFactoryBean">
+		<property name="members" value="${hazelcast.members}" />
+	</bean>
+		
+	<bean id="CIMSessionManager" class="com.appleframework.cim.session.ClusterSessionManager">
+		<property name="instance" ref="hazelcastInstance" />
+	</bean>
+	
 	<bean id="messagePusher" class="com.appleframework.cim.push.DefaultMessagePusher">
 		<property name="sessionManager" ref="CIMSessionManager" />
 	</bean>

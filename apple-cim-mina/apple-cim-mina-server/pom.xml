@@ -9,7 +9,6 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>apple-cim-mina-server</artifactId>
-	<packaging>war</packaging>
 	<name>apple-cim-mina-server Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 

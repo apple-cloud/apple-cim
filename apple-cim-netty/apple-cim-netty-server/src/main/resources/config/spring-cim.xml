@@ -35,7 +35,7 @@
 	</bean>
 
 	<bean id="hazelcastInstance" class="com.appleframework.cim.session.HazelcastInstanceFactoryBean">
-		<property name="addresses" value="192.168.3.117" />
+		<property name="members" value="${hazelcast.members}" />
 	</bean>
 		
 	<bean id="CIMSessionManager" class="com.appleframework.cim.session.ClusterSessionManager">

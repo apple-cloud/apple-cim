@@ -13,12 +13,12 @@ import com.hazelcast.core.HazelcastInstance;
 
 public class HazelcastInstanceFactoryBean implements FactoryBean<HazelcastInstance> {
 
-	private List<String> members = new ArrayList<>();
+	private List<String> memberList = new ArrayList<>();
 
-	public void setAddresses(String addresses) {
-		String[] addressArray = addresses.split(",");
-		for (String address : addressArray) {
-			members.add(address);
+	public void setMembers(String members) {
+		String[] memberArray = members.split(",");
+		for (String member : memberArray) {
+			memberList.add(member);
 		}
 	}
 
@@ -29,7 +29,7 @@ public class HazelcastInstanceFactoryBean implements FactoryBean<HazelcastInstan
 		NetworkConfig network = config.getNetworkConfig();
 		JoinConfig join = network.getJoin();
 		join.getMulticastConfig().setEnabled(false);
-		join.getTcpIpConfig().setMembers(members).setEnabled(true);
+		join.getTcpIpConfig().setMembers(memberList).setEnabled(true);
 		HazelcastInstance instance = Hazelcast.newHazelcastInstance(config);
 		return instance;
 	}
