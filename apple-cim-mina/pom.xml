@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>com.appleframework.cim</groupId>
 		<artifactId>apple-cim</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.1</version>
 	</parent>
 	<artifactId>apple-cim-mina</artifactId>
 	<name>apple-cim-mina</name>
