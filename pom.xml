@@ -158,10 +158,10 @@
 		<module>apple-cim-core</module>
 		<module>apple-cim-server-core</module>
    	 	<module>apple-cim-client-core</module>
+   	 	<module>apple-cim-android-core</module>
+   	 	
 		<module>apple-cim-netty</module>
 		<module>apple-cim-mina</module>
-    	<module>apple-cim-mina-java-sdk</module>
-    	<module>apple-cim-android-core</module>
 	</modules>
 
 </project>
