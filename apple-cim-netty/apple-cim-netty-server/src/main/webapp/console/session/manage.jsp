@@ -92,6 +92,7 @@
 									<th width="10%">应用版本</th>
 									<th width="10%">设备型号</th>
 									<th width="10%">在线时长</th>
+									<th width="10%">IP</th>
 									<th width="28%">位置</th>
 									<th width="12%">操作</th>
 								</tr>
@@ -100,10 +101,8 @@
 							<tbody id="checkPlanList">
 
                                 <%
-                                  for(CIMSession ios:sessionList)
-                                  {
-                                    if(ios.getAccount()!=null)
-                                    {
+                                  for(CIMSession ios:sessionList) {
+                                    if(ios.getAccount()!=null) {
                                  %>
                                  	<tr id="<%=ios.getAccount() %>" style=" height: 50px;">
                                         <td>
@@ -128,13 +127,14 @@
 										    <%=(System.currentTimeMillis()-ios.getBindTime())/1000 %>秒
 										</td>
 										<td>
+										   <%=ios.getClientIp()==null?"":ios.getClientIp() %>
+										</td>
+										<td>
 										   <%=ios.getAttribute("location")==null?"":ios.getAttribute("location") %>
 										</td>
 										<td>
 											<div class="btn-group btn-group-xs">
-											  <button type="button" class="btn btn-primary" style="padding: 5px;" 
-onclick="showMessageDialog('<%=ios.getAccount() %>')"><span class="glyphicon glyphicon-send" style="top:2px;"></span>  发送消息</button>
-											   
+											  <button type="button" class="btn btn-primary" style="padding: 5px;" onclick="showMessageDialog('<%=ios.getAccount() %>')"><span class="glyphicon glyphicon-send" style="top:2px;"></span>  发送消息</button>
 											</div>
 										</td>
 									</tr>	
@@ -150,39 +150,39 @@ onclick="showMessageDialog('<%=ios.getAccount() %>')"><span class="glyphicon gly
 			</div>
 			
 			
-<div class="modal fade" id="messageDialog" tabindex="-1" role="dialog" >
-		<div class="modal-dialog" style="width: 420px;">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	                <h4 class="modal-title">发送消息</h4>
-				</div>
-				<div class="modal-body">
-					<div class="form-groupBuy">
-							<label for="Amobile">
-								接收账号:
-							</label>
-							<input type="text" class="form-control" id="Saccount"
-								name="account"
-								style="width: 100%; font-size: 20px; font-weight: bold;height:40px;"
-								disabled="disabled" />
+			<div class="modal fade" id="messageDialog" tabindex="-1" role="dialog" >
+					<div class="modal-dialog" style="width: 420px;">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				                <h4 class="modal-title">发送消息</h4>
+							</div>
+							<div class="modal-body">
+								<div class="form-groupBuy">
+										<label for="Amobile">
+											接收账号:
+										</label>
+										<input type="text" class="form-control" id="Saccount"
+											name="account"
+											style="width: 100%; font-size: 20px; font-weight: bold;height:40px;"
+											disabled="disabled" />
+									</div>
+									<div class="form-groupBuy" style="margin-top: 20px;">
+										<label for="exampleInputFile">
+											消息内容:
+										</label>
+										<textarea rows="10" style="width: 100%; height: 200px;"
+											id="message" name="message" class="form-control"></textarea>
+									</div>
+							</div>
+							<div class="modal-footer" style="padding: 5px 10px; text-align: center;">
+								<button type="button" class="btn btn-success btn-lg" style="width: 200px;" onclick="doSendMessage()">
+									<span class="glyphicon glyphicon-send" style="top:2px;"></span> 发送
+								</button>
+							</div>
 						</div>
-						<div class="form-groupBuy" style="margin-top: 20px;">
-							<label for="exampleInputFile">
-								消息内容:
-							</label>
-							<textarea rows="10" style="width: 100%; height: 200px;"
-								id="message" name="message" class="form-control"></textarea>
-						</div>
-				</div>
-				<div class="modal-footer" style="padding: 5px 10px; text-align: center;">
-					<button type="button" class="btn btn-success btn-lg" style="width: 200px;" onclick="doSendMessage()">
-						<span class="glyphicon glyphicon-send" style="top:2px;"></span> 发送
-					</button>
-				</div>
+					</div>
 			</div>
-		</div>
-</div>
 
 
 

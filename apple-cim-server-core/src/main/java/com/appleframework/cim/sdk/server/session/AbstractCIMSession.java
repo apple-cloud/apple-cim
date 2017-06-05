@@ -65,7 +65,8 @@ public abstract class AbstractCIMSession implements Serializable {
 	protected String location;// 位置
 	protected int apnsAble;// apns推送状态
 	protected int status;// 状态
-
+	protected String clientIp;
+	
 	public String getAccount() {
 		return account;
 	}
@@ -207,6 +208,15 @@ public abstract class AbstractCIMSession implements Serializable {
 	public void setStatus(int status) {
 		this.status = status;
 		setAttribute("status", status);
+	}
+
+	public String getClientIp() {
+		return clientIp;
+	}
+
+	public void setClientIp(String clientIp) {
+		this.clientIp = clientIp;
+		setAttribute("clientIp", clientIp);
 	}
 
 	public abstract void setAttribute(String key, Object value);
