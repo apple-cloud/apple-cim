@@ -27,8 +27,8 @@ import com.appleframework.cim.sdk.android.constant.CIMConstant;
 import com.appleframework.cim.sdk.android.model.HeartbeatRequest;
 import com.appleframework.cim.sdk.android.model.Message;
 import com.appleframework.cim.sdk.android.model.ReplyBody;
-import com.appleframework.cim.sdk.android.model.proto.MessageProto;
-import com.appleframework.cim.sdk.android.model.proto.ReplyBodyProto;
+import com.appleframework.cim.sdk.model.proto.MessageProto;
+import com.appleframework.cim.sdk.model.proto.ReplyBodyProto;
 import com.google.protobuf.InvalidProtocolBufferException;
 
 import android.util.Log;
@@ -40,7 +40,9 @@ import io.netty.handler.codec.ByteToMessageDecoder;
  * 客户端消息解码
  */
 public class ClientMessageDecoder extends ByteToMessageDecoder {
+
 	final static String TAG = ClientMessageDecoder.class.getSimpleName();
+
 	@Override
 	protected void decode(ChannelHandlerContext arg0, ByteBuf buffer, List<Object> queue) throws Exception {
 
@@ -72,8 +74,8 @@ public class ClientMessageDecoder extends ByteToMessageDecoder {
 		buffer.readBytes(dataBytes);
 
 		Object message = mappingMessageObject(dataBytes, conetnType);
-		
-		if(message!=null){
+
+		if (message != null) {
 			queue.add(message);
 		}
 

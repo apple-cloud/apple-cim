@@ -27,7 +27,7 @@ import java.util.Map;
 import java.util.Set;
 
 import com.appleframework.cim.sdk.android.constant.CIMConstant;
-import com.appleframework.cim.sdk.android.model.proto.SentBodyProto;
+import com.appleframework.cim.sdk.model.proto.SentBodyProto;
 /**
  * java |android 客户端请求结构
  *
