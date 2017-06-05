@@ -26,7 +26,7 @@ import com.appleframework.cim.sdk.android.model.SentBody;
 /**
  * 连接服务端管理，cim核心处理类，管理连接，以及消息处理
  * 
- * @author 3979434@qq.com
+ * 
  */
 public interface CIMConnectorManager {
 

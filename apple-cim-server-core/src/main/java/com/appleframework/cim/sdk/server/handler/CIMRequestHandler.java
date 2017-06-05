@@ -23,7 +23,7 @@ package com.appleframework.cim.sdk.server.handler;
 
 /**
  *  请求处理接口,所有的请求实现必须实现此接口
- *  @author 3979434@qq.com
+ *  
  */
 import com.appleframework.cim.sdk.server.model.ReplyBody;
 import com.appleframework.cim.sdk.server.model.SentBody;
