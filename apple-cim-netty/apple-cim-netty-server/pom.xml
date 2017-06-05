@@ -10,7 +10,7 @@
 	</parent>
 	<artifactId>apple-cim-netty-server</artifactId>
 	<packaging>jar</packaging>
-	<name>apple-cim-netty-server Maven Webapp</name>
+	<name>apple-cim-netty-server</name>
 	<url>http://maven.apache.org</url>
 	
 	<dependencies>
@@ -252,23 +252,8 @@
 					</execution>
 				</executions>
 			</plugin>
-
-
 		</plugins>
-
 	</build>
 
-	<distributionManagement>
-		<repository>
-			<id>nexus-releases</id>
-			<name>Local Nexus Releases Repository</name>
-			<url>http://nexus.9zhiad.com:8081/nexus/content/repositories/releases</url>
-		</repository>
-
-		<snapshotRepository>
-			<id>nexus-snapshots</id>
-			<name>Local Nexus Snapshots Repository</name>
-			<url>http://nexus.9zhiad.com:8081/nexus/content/repositories/snapshots</url>
-		</snapshotRepository>
-	</distributionManagement>
+	
 </project>

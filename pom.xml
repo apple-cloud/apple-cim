@@ -163,5 +163,19 @@
 		<module>apple-cim-netty</module>
 		<module>apple-cim-mina</module>
 	</modules>
+	
+	<distributionManagement>
+		<repository>
+			<id>nexus-releases</id>
+			<name>Local Nexus Releases Repository</name>
+			<url>http://nexus.appleframework.com:8081/nexus/content/repositories/releases</url>
+		</repository>
+
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<name>Local Nexus Snapshots Repository</name>
+			<url>http://nexus.appleframework.com:8081/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 </project>

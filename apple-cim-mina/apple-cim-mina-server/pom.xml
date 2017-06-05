@@ -9,7 +9,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>apple-cim-mina-server</artifactId>
-	<name>apple-cim-mina-server Maven Webapp</name>
+	<name>apple-cim-mina-server</name>
 	<url>http://maven.apache.org</url>
 
 
@@ -229,7 +229,6 @@
 			</plugins>
 		</pluginManagement>
 		<plugins>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
@@ -237,7 +236,6 @@
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
-
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<configuration>
@@ -253,23 +251,8 @@
 					</execution>
 				</executions>
 			</plugin>
-
-
 		</plugins>
 
 	</build>
 
-	<distributionManagement>
-		<repository>
-			<id>nexus-releases</id>
-			<name>Local Nexus Releases Repository</name>
-			<url>http://nexus.9zhiad.com:8081/nexus/content/repositories/releases</url>
-		</repository>
-
-		<snapshotRepository>
-			<id>nexus-snapshots</id>
-			<name>Local Nexus Snapshots Repository</name>
-			<url>http://nexus.9zhiad.com:8081/nexus/content/repositories/snapshots</url>
-		</snapshotRepository>
-	</distributionManagement>
 </project>
