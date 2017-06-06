@@ -62,6 +62,20 @@ public class BindHandler implements CIMRequestHandler {
 			newSession.setSystemVersion(message.get("osVersion"));
 			newSession.setBindTime(System.currentTimeMillis());
 			newSession.setPackageName(message.get("packageName"));
+			
+			String longitude = message.get("longitude");
+			String latitude = message.get("latitude");
+			String location = message.get("location");
+			if(StringUtil.isNotEmpty(longitude)) {
+				newSession.setLongitude(longitude);
+			}
+			if(StringUtil.isNotEmpty(latitude)) {
+				newSession.setLatitude(latitude);
+			}
+			if(StringUtil.isNotEmpty(location)) {
+				newSession.setLocation(location);
+			}
+			
 			/**
 			 * 由于客户端断线服务端可能会无法获知的情况，客户端重连时，需要关闭旧的连接
 			 */

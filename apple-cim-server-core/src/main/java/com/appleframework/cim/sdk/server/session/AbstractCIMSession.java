@@ -60,8 +60,8 @@ public abstract class AbstractCIMSession implements Serializable {
 	protected String packageName;// 终端应用包名
 	protected Long bindTime;// 登录时间
 	protected Long heartbeat;// 心跳时间
-	protected Double longitude;// 经度
-	protected Double latitude;// 维度
+	protected String longitude;// 经度
+	protected String latitude;// 维度
 	protected String location;// 位置
 	protected int apnsAble;// apns推送状态
 	protected int status;// 状态
@@ -76,20 +76,20 @@ public abstract class AbstractCIMSession implements Serializable {
 		setAttribute(CIMConstant.SESSION_KEY, account);
 	}
 
-	public Double getLongitude() {
+	public String getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(Double longitude) {
+	public void setLongitude(String longitude) {
 		setAttribute("longitude", longitude);
 		this.longitude = longitude;
 	}
 
-	public Double getLatitude() {
+	public String getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(Double latitude) {
+	public void setLatitude(String latitude) {
 		setAttribute("latitude", latitude);
 		this.latitude = latitude;
 	}
