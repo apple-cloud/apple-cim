@@ -65,15 +65,11 @@ public class BindHandler implements CIMRequestHandler {
 			
 			String longitude = message.get("longitude");
 			String latitude = message.get("latitude");
-			String location = message.get("location");
 			if(StringUtil.isNotEmpty(longitude)) {
 				newSession.setLongitude(longitude);
 			}
 			if(StringUtil.isNotEmpty(latitude)) {
 				newSession.setLatitude(latitude);
-			}
-			if(StringUtil.isNotEmpty(location)) {
-				newSession.setLocation(location);
 			}
 			
 			/**
