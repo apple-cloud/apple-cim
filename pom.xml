@@ -4,7 +4,7 @@
 
 	<groupId>com.appleframework.cim</groupId>
 	<artifactId>apple-cim</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.1.RELEASE</version>
 	<packaging>pom</packaging>
 
 	<name>apple-cim</name>
@@ -159,7 +159,6 @@
 		<module>apple-cim-server-core</module>
    	 	<module>apple-cim-client-core</module>
    	 	<module>apple-cim-android-core</module>
-   	 	
 		<module>apple-cim-netty</module>
 		<module>apple-cim-mina</module>
 	</modules>
