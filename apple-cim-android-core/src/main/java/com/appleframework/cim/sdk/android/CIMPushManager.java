@@ -28,9 +28,10 @@ import com.appleframework.cim.sdk.android.model.SentBody;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.location.Location;
+import android.location.LocationManager;
 import android.telephony.TelephonyManager;
 
 /**
@@ -117,21 +118,22 @@ public class CIMPushManager {
 		sent.put("version", getVersionName(context));
 		sent.put("osVersion", android.os.Build.VERSION.RELEASE);
 		sent.put("packageName", context.getPackageName());
-		SharedPreferences location = context.getSharedPreferences("location", 0);
-		if (null != location) {
-			String longitude = location.getString("longitude", "");
-			String latitude = location.getString("latitude", "");
-			String locate = location.getString("location", "");
-			if (null != longitude && longitude.length() > 0) {
-				sent.put("longitude", longitude);
+		try {
+			LocationManager locationManager = (LocationManager)context.getSystemService(Context.LOCATION_SERVICE);
+			Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+			if (null != location) {
+				String longitude = location.getLongitude() + "";
+				String latitude = location.getAltitude() + "";
+				if (null != longitude && longitude.length() > 0) {
+					sent.put("longitude", longitude);
+				}
+				if (null != latitude && latitude.length() > 0) {
+					sent.put("latitude", latitude);
+				}
 			}
-			if (null != latitude && latitude.length() > 0) {
-				sent.put("latitude", latitude);
-			}
-			if (null != locate && locate.length() > 0) {
-				sent.put("location", locate);
-			}
+		} catch (Exception e) {
 		}
+		
 		sendRequest(context, sent);
 	}
 
