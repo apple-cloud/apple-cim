@@ -45,7 +45,9 @@ public class ServerMessageEncoder extends MessageToByteEncoder<Object> {
 			out.writeBytes(createHeader(data.getType(), byteArray.length));
 			out.writeBytes(byteArray);
 		}
-		logger.info(message.toString());
+		if(logger.isInfoEnabled()) {
+			logger.info(message.toString());
+		}
 	}
 
 	/**

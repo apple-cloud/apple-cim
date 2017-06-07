@@ -74,7 +74,9 @@ public class ServerMessageDecoder extends ByteToMessageDecoder {
 	public Object mappingMessageObject(byte[] data, byte type) throws Exception {
 		if (CIMConstant.ProtobufType.C_H_RS == type) {
 			HeartbeatResponse response = HeartbeatResponse.getInstance();
-			logger.info(response.toString());
+			if(logger.isInfoEnabled()) {
+				logger.info(response.toString());
+			}
 			SentBody body = new SentBody();
 			body.setKey(CIMConstant.CLIENT_HEARTBEAT);
 			body.setTimestamp(System.currentTimeMillis());
@@ -86,7 +88,9 @@ public class ServerMessageDecoder extends ByteToMessageDecoder {
 			body.setKey(bodyProto.getKey());
 			body.setTimestamp(bodyProto.getTimestamp());
 			body.putAll(bodyProto.getDataMap());
-			logger.info(body.toString());
+			if(logger.isInfoEnabled()) {
+				logger.info(body.toString());
+			}
 			return body;
 		}
 		return null;
