@@ -12,13 +12,13 @@ public class CIMJavaClient implements CIMEventListener {
 
 	public static void startup() {
 		
-		CIMConnectorManagerFactory.setConnectorManagerClazz("com.appleframework.cim.sdk.client.CIMNettyConnectorManager");
+		CIMConnectorManagerFactory.setConnectorManagerClazz("com.appleframework.cim.sdk.client.CIMConnectorManagerImpl");
 		/**
 		 * 第一步 设置运行时参数
 		 */
 		CIMPushManager.setClientVersion("2.0.0");// 客户端程序版本
 		CIMPushManager.setDeviceModel("pc");// 设备型号名称
-		// CIMPushManager.setAccount("10000");// IUID
+		CIMPushManager.setAccount("10000");// IUID
 
 		/**
 		 * 第二步 设置全局的事件监听器
@@ -28,7 +28,7 @@ public class CIMJavaClient implements CIMEventListener {
 		/**
 		 * 第三步 连接到服务器
 		 */
-		CIMPushManager.connect("127.0.0.1", 9001);
+		CIMPushManager.connect("127.0.0.1", 23456);
 
 	}
 
