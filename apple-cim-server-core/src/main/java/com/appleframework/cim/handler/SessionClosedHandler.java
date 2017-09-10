@@ -36,6 +36,8 @@ import com.appleframework.cim.util.ContextHolder;
  * 
  */
 public class SessionClosedHandler implements CIMRequestHandler {
+	
+	private SessionManager sessionManager = ContextHolder.getBean(SessionManager.class);
 
 	protected final Logger logger = Logger.getLogger(SessionClosedHandler.class);
 
@@ -44,7 +46,6 @@ public class SessionClosedHandler implements CIMRequestHandler {
 		if (account == null) {
 			return null;
 		}
-		SessionManager sessionManager = ContextHolder.getBean(SessionManager.class);
 		ios.removeAttribute(CIMConstant.SESSION_KEY);
 		sessionManager.remove(account.toString());
 		return null;

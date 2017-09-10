@@ -59,23 +59,26 @@ public class CIMPushService {
 			manager.connect(host, port);
 		}
 
-		if (CIMPushManager.ACTION_SEND_REQUEST_BODY.equals(action)) {
+		else if (CIMPushManager.ACTION_SEND_REQUEST_BODY.equals(action)) {
 			manager.send((SentBody) intent.getExtra(SentBody.class.getName()));
 		}
 
-		if (CIMPushManager.ACTION_CLOSE_CIM_CONNECTION.equals(action)) {
+		else if (CIMPushManager.ACTION_CLOSE_CIM_CONNECTION.equals(action)) {
 			manager.closeSession();
 		}
 
-		if (CIMPushManager.ACTION_DESTORY.equals(action)) {
+		else if (CIMPushManager.ACTION_DESTORY.equals(action)) {
 			manager.destroy();
 		}
 
-		if (CIMPushManager.ACTION_ACTIVATE_PUSH_SERVICE.equals(action) && !manager.isConnected()) {
-
+		else if (CIMPushManager.ACTION_ACTIVATE_PUSH_SERVICE.equals(action) && !manager.isConnected()) {
 			String host = CIMCacheToolkit.getInstance().getString(CIMCacheToolkit.KEY_CIM_SERVIER_HOST);
 			int port = CIMCacheToolkit.getInstance().getInt(CIMCacheToolkit.KEY_CIM_SERVIER_PORT);
 			manager.connect(host, port);
+		}
+		
+		else {
+			
 		}
 	}
 

@@ -41,7 +41,6 @@ public class CIMListenerManager  {
 
 
 	public static void registerMessageListener(CIMEventListener listener) {
-
 		if (!cimListeners.contains(listener)) {
 			cimListeners.add(listener);
 			Collections.sort(cimListeners,comparator);
@@ -62,6 +61,7 @@ public class CIMListenerManager  {
 			listener.onConnectionSuccessed(antoBind);
 		}
 	}
+	
 	public static void notifyOnMessageReceived(Message message) {
 		for (CIMEventListener listener : cimListeners) {
 			listener.onMessageReceived(message);
@@ -101,7 +101,6 @@ public class CIMListenerManager  {
 	 * 消息接收activity的接收顺序排序，CIM_RECEIVE_ORDER倒序
 	 */
    private static class CIMMessageReceiveComparator  implements Comparator<CIMEventListener>{
-
 		@Override
 		public int compare(CIMEventListener arg1, CIMEventListener arg2) {
 			 

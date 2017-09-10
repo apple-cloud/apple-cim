@@ -68,6 +68,8 @@ public abstract class AbstractCIMSession implements Serializable {
 	protected String clientIp;
 	
 	public String getAccount() {
+		if(null == account)
+			account = (String)getAttribute(CIMConstant.SESSION_KEY);
 		return account;
 	}
 
@@ -77,33 +79,38 @@ public abstract class AbstractCIMSession implements Serializable {
 	}
 
 	public String getLongitude() {
+		if(null == longitude)
+			longitude = (String)getAttribute("longitude");
 		return longitude;
 	}
 
 	public void setLongitude(String longitude) {
-		setAttribute("longitude", longitude);
 		this.longitude = longitude;
 	}
 
 	public String getLatitude() {
+		if(null == latitude)
+			latitude = (String)getAttribute("latitude");
 		return latitude;
 	}
 
 	public void setLatitude(String latitude) {
-		setAttribute("latitude", latitude);
 		this.latitude = latitude;
 	}
 
 	public String getLocation() {
+		if(null == location)
+			location = (String)getAttribute("location");
 		return location;
 	}
 
 	public void setLocation(String location) {
-		setAttribute("location", location);
 		this.location = location;
 	}
 
 	public String getGid() {
+		if(null == gid)
+			gid = (String)getAttribute("gid");
 		return gid;
 	}
 
@@ -121,10 +128,14 @@ public abstract class AbstractCIMSession implements Serializable {
 	}
 
 	public String getDeviceId() {
+		if(null == deviceId)
+			deviceId = (String)getAttribute("deviceId");
 		return deviceId;
 	}
 
 	public String getChannel() {
+		if(null == channel)
+			channel = (String)getAttribute("channel");
 		return channel;
 	}
 
@@ -134,6 +145,8 @@ public abstract class AbstractCIMSession implements Serializable {
 	}
 
 	public String getDeviceModel() {
+		if(null == deviceModel)
+			deviceModel = (String)getAttribute("deviceModel");
 		return deviceModel;
 	}
 
@@ -148,6 +161,8 @@ public abstract class AbstractCIMSession implements Serializable {
 	}
 
 	public String getHost() {
+		if(null == host)
+			host = (String)getAttribute("host");
 		return host;
 	}
 
@@ -161,6 +176,8 @@ public abstract class AbstractCIMSession implements Serializable {
 	}
 
 	public String getClientVersion() {
+		if(null == clientVersion)
+			clientVersion = (String)getAttribute("clientVersion");
 		return clientVersion;
 	}
 
@@ -170,6 +187,8 @@ public abstract class AbstractCIMSession implements Serializable {
 	}
 
 	public String getSystemVersion() {
+		if(null == systemVersion)
+			systemVersion = (String)getAttribute("systemVersion");
 		return systemVersion;
 	}
 
@@ -179,6 +198,8 @@ public abstract class AbstractCIMSession implements Serializable {
 	}
 
 	public Long getHeartbeat() {
+		if(null == heartbeat)
+			heartbeat = (Long)getAttribute(CIMConstant.HEARTBEAT_KEY);
 		return heartbeat;
 	}
 
@@ -211,6 +232,8 @@ public abstract class AbstractCIMSession implements Serializable {
 	}
 
 	public String getClientIp() {
+		if(null == clientIp)
+			clientIp = (String)getAttribute("clientIp");
 		return clientIp;
 	}
 
@@ -253,10 +276,12 @@ public abstract class AbstractCIMSession implements Serializable {
 
 	public void setPackageName(String packageName) {
 		this.packageName = packageName;
-		setAttribute("packageName", apnsAble);
+		setAttribute("packageName", packageName);
 	}
 
 	public String getPackageName() {
+		if(null == packageName)
+			packageName = (String)getAttribute("packageName");
 		return packageName;
 	}
 
