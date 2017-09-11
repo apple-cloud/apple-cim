@@ -4,7 +4,7 @@
 
 	<groupId>com.appleframework.cim</groupId>
 	<artifactId>apple-cim</artifactId>
-	<version>0.0.1.RELEASE</version>
+	<version>0.0.2.RELEASE</version>
 	<packaging>pom</packaging>
 
 	<name>apple-cim</name>
