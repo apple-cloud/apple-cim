@@ -39,8 +39,8 @@ import com.google.protobuf.InvalidProtocolBufferException;
  *  客户端消息解码
  */
 public class ClientMessageDecoder extends CumulativeProtocolDecoder {
-	protected final Logger logger = Logger.getLogger(ClientMessageDecoder.class);
 	
+	protected final Logger logger = Logger.getLogger(ClientMessageDecoder.class);
 
 	@Override
 	public boolean doDecode(IoSession iosession, IoBuffer iobuffer,
@@ -81,17 +81,13 @@ public class ClientMessageDecoder extends CumulativeProtocolDecoder {
 
     private Object mappingMessageObject(byte[]  bytes,byte type) throws InvalidProtocolBufferException {
 		
-    	
-    	  
-		if(CIMConstant.ProtobufType.S_H_RQ == type)
-		{
+		if(CIMConstant.ProtobufType.S_H_RQ == type) {
 			HeartbeatRequest request = HeartbeatRequest.getInstance();
 			logger.info(request.toString());
 			return request;
 		}
 		
-		if(CIMConstant.ProtobufType.REPLYBODY == type)
-		{
+		else if(CIMConstant.ProtobufType.REPLYBODY == type) {
 			ReplyBodyProto.Model bodyProto = ReplyBodyProto.Model.parseFrom(bytes);
 			ReplyBody body = new ReplyBody();
 	        body.setKey(bodyProto.getKey());
@@ -105,8 +101,7 @@ public class ClientMessageDecoder extends CumulativeProtocolDecoder {
 	        return body;
 		}
 		
-		if(CIMConstant.ProtobufType.MESSAGE == type)
-		{
+		else if(CIMConstant.ProtobufType.MESSAGE == type) {
 			MessageProto.Model bodyProto = MessageProto.Model.parseFrom(bytes);
 			Message message = new Message();
 			message.setMid(bodyProto.getMid());
@@ -123,7 +118,9 @@ public class ClientMessageDecoder extends CumulativeProtocolDecoder {
 	        return message;
 		}
 		
-		return null;
+		else {
+			return null;
+		}
 		
 	}
     

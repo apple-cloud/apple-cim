@@ -90,7 +90,7 @@ public class ClientMessageDecoder extends ByteToMessageDecoder {
 			return request;
 		}
 
-		if (CIMConstant.ProtobufType.REPLYBODY == type) {
+		else if (CIMConstant.ProtobufType.REPLYBODY == type) {
 			ReplyBodyProto.Model bodyProto = ReplyBodyProto.Model.parseFrom(bytes);
 			ReplyBody body = new ReplyBody();
 			body.setKey(bodyProto.getKey());
@@ -104,7 +104,7 @@ public class ClientMessageDecoder extends ByteToMessageDecoder {
 			return body;
 		}
 
-		if (CIMConstant.ProtobufType.MESSAGE == type) {
+		else if (CIMConstant.ProtobufType.MESSAGE == type) {
 			MessageProto.Model bodyProto = MessageProto.Model.parseFrom(bytes);
 			Message message = new Message();
 			message.setMid(bodyProto.getMid());
@@ -119,9 +119,12 @@ public class ClientMessageDecoder extends ByteToMessageDecoder {
 
 			logger.info(message.toString());
 			return message;
+		} 
+		
+		else {
+			return null;
 		}
 
-		return null;
 
 	}
 

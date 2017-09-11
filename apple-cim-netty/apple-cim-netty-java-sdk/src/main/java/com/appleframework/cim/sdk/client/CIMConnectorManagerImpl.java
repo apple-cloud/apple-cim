@@ -179,8 +179,7 @@ class CIMConnectorManagerImpl extends SimpleChannelInboundHandler<Object> implem
 
 	@Override
 	public void channelInactive(ChannelHandlerContext ctx) {
-		logger.error("****************CIM与服务器断开连接:" + ctx.channel().localAddress() + " NID:"
-				+ ctx.channel().id().asShortText());
+		logger.error("****************CIM与服务器断开连接:" + ctx.channel().localAddress() + " NID:" + ctx.channel().id().asShortText());
 		Intent intent = new Intent();
 		intent.setAction(CIMConstant.IntentAction.ACTION_CONNECTION_CLOSED);
 		sendBroadcast(intent);
@@ -226,7 +225,7 @@ class CIMConnectorManagerImpl extends SimpleChannelInboundHandler<Object> implem
 			sendBroadcast(intent);
 
 		}
-		if (msg instanceof ReplyBody) {
+		else if (msg instanceof ReplyBody) {
 			Intent intent = new Intent();
 			intent.setAction(CIMConstant.IntentAction.ACTION_REPLY_RECEIVED);
 			intent.putExtra(ReplyBody.class.getName(), (ReplyBody) msg);
@@ -234,9 +233,13 @@ class CIMConnectorManagerImpl extends SimpleChannelInboundHandler<Object> implem
 		}
 
 		// 收到服务端发来的心跳请求命令，则马上回应服务器
-		if (msg instanceof HeartbeatRequest) {
+		else if (msg instanceof HeartbeatRequest) {
 			ctx.writeAndFlush(HeartbeatResponse.getInstance());
 			setLastHeartbeatTime(ctx.channel());
+		}
+		
+		else {
+			logger.error(msg);
 		}
 	}
 

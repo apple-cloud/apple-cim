@@ -87,7 +87,7 @@ public class ClientMessageDecoder extends CumulativeProtocolDecoder {
 			return request;
 		}
 
-		if (CIMConstant.ProtobufType.REPLYBODY == type) {
+		else if (CIMConstant.ProtobufType.REPLYBODY == type) {
 			ReplyBodyProto.Model bodyProto = ReplyBodyProto.Model.parseFrom(bytes);
 			ReplyBody body = new ReplyBody();
 			body.setKey(bodyProto.getKey());
@@ -99,7 +99,7 @@ public class ClientMessageDecoder extends CumulativeProtocolDecoder {
 			return body;
 		}
 
-		if (CIMConstant.ProtobufType.MESSAGE == type) {
+		else if (CIMConstant.ProtobufType.MESSAGE == type) {
 			MessageProto.Model bodyProto = MessageProto.Model.parseFrom(bytes);
 			Message message = new Message();
 			message.setMid(bodyProto.getMid());
@@ -116,7 +116,9 @@ public class ClientMessageDecoder extends CumulativeProtocolDecoder {
 			return message;
 		}
 
-		return null;
+		else {
+			return null;
+		}
 
 	}
 

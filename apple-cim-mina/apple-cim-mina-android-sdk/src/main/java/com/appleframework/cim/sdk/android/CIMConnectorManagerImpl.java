@@ -275,12 +275,15 @@ class CIMConnectorManagerImpl extends IoHandlerAdapter implements KeepAliveMessa
 			context.sendBroadcast(intent);
 
 		}
-		if (obj instanceof ReplyBody) {
+		else if (obj instanceof ReplyBody) {
 
 			Intent intent = new Intent();
 			intent.setAction(CIMConstant.IntentAction.ACTION_REPLY_RECEIVED);
 			intent.putExtra(ReplyBody.class.getName(), (ReplyBody) obj);
 			context.sendBroadcast(intent);
+		}
+		else {
+			
 		}
 	}
 
