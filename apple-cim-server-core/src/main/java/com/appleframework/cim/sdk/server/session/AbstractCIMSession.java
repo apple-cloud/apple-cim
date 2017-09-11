@@ -38,8 +38,8 @@ public abstract class AbstractCIMSession implements Serializable {
 	
 	public transient static String ID = "ID";
 	public transient static String HOST = "HOST";
-	public transient static final int STATUS_ENABLED = 0;
-	public transient static final int STATUS_DISABLED = 1;
+	public transient static final int STATUS_ENABLED = 1;
+	public transient static final int STATUS_DISABLED = 0;
 	public transient static final int APNS_ON = 1;
 	public transient static final int APNS_OFF = 0;
 
@@ -63,8 +63,8 @@ public abstract class AbstractCIMSession implements Serializable {
 	protected String longitude;// 经度
 	protected String latitude;// 维度
 	protected String location;// 位置
-	protected int apnsAble;// apns推送状态
-	protected int status;// 状态
+	protected Integer apnsAble = APNS_OFF;// apns推送状态
+	protected Integer status = STATUS_DISABLED;// 状态
 	protected String clientIp;
 	
 	public String getAccount() {
@@ -213,20 +213,24 @@ public abstract class AbstractCIMSession implements Serializable {
 		setAttribute("host", host);
 	}
 
-	public int getApnsAble() {
+	public Integer getApnsAble() {
+		if(null == apnsAble)
+			apnsAble = (Integer)getAttribute("apnsAble");
 		return apnsAble;
 	}
 
-	public void setApnsAble(int apnsAble) {
+	public void setApnsAble(Integer apnsAble) {
 		this.apnsAble = apnsAble;
 		setAttribute("apnsAble", apnsAble);
 	}
 
-	public int getStatus() {
+	public Integer getStatus() {
+		if(null == status)
+			status = (Integer)getAttribute("status");
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(Integer status) {
 		this.status = status;
 		setAttribute("status", status);
 	}
